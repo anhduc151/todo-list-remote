@@ -34,23 +34,28 @@ const TodoItem = ({ task, onToggle, onDelete, onEdit }) => {
       ) : (
         <div className="list_item">
           <div className="list_check">
-          <input
-            type="checkbox"
-            className="list_check_input"
-            checked={task.completed}
-            onChange={() => onToggle(task.id)}
-          />
-          <div className="list_item_left">
-            <div
-              className="list_item_left"
-              style={{
-                textDecoration: task.completed ? "line-through" : "none",
-              }}
-            >
-              <p className="list_item_left_title">{task.title}</p>
-              <p className="list_item_left_des">{task.description}</p>
+            <label className="checkbox-btn">
+              <label for="checkbox"></label>
+              <input
+                id="checkbox"
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => onToggle(task.id)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            
+            <div className="list_item_left">
+              <div
+                className="list_item_left"
+                style={{
+                  textDecoration: task.completed ? "line-through" : "none",
+                }}
+              >
+                <p className="list_item_left_title">{task.title}</p>
+                <p className="list_item_left_des">{task.description}</p>
+              </div>
             </div>
-          </div>
           </div>
           <div className="btn_center">
             <button

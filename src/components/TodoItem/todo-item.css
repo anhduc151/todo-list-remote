@@ -9,7 +9,7 @@
   display: flex;
   padding: 20px 12px;
   border-radius: 5px;
-  background-color: rgb(85, 164, 179);
+  background-color: rgb(85, 179, 124);
   border: 1px solid #c5baba;
   justify-content: space-between;
   align-items: center;
@@ -78,50 +78,84 @@
   gap: 10px;
 }
 
-/* Thiết lập kiểu cho checkbox và label */
-.list_check_input {
-    display: none; /* Ẩn checkbox mặc định */
+/* css checkbox */
+/* Customize the label (the checkbox-btn) */
+.checkbox-btn {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-btn input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-btn label {
+  cursor: pointer;
+  font-size: 14px;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2.5px solid #ffffff;
+  transition: .2s linear;
+}
+.checkbox-btn input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  top: 40%;
+  width: 10px;
+  height: 14px;
+  border: 2px solid #06ff3c;
+  filter: drop-shadow(0px 0px 10px #0ea021);
+  border-width: 0 2.5px 2.5px 0;
+  transition: .2s linear;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+}
+
+/* Show the checkmark when checked */
+.checkbox-btn input:checked ~ .checkmark:after {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  animation: pulse 1s ease-in;
+}
+
+.checkbox-btn input:checked ~ .checkmark {
+  transform: rotate(45deg);
+  border: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
   }
-  
-  .list_check {
-    position: relative;
-    padding-left: 30px; /* Khoảng cách giữa checkbox và nội dung */
-    cursor: pointer;
-    display: inline-block;
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
   }
-  
-  /* Tạo hình dạng cho checkbox */
-  .list_check::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px; /* Độ rộng checkbox */
-    height: 20px; /* Chiều cao checkbox */
-    border: 2px solid #333; /* Màu và độ đậm của đường viền */
-    background-color: #fff; /* Màu nền của checkbox */
-  }
-  
-  /* Tạo hình check khi checkbox được chọn */
-  .list_check_input:checked + .list_check::before {
-    background-color: #4caf50; /* Màu nền của checkbox khi được chọn */
-    border-color: #4caf50; /* Màu của đường viền khi được chọn */
-  }
-  
-  /* Tạo hình check (dấu tích) */
-  .list_check::after {
-    content: '\2713'; /* Unicode của dấu tích */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px; /* Kích thước của dấu tích */
-    color: #fff; /* Màu của dấu tích */
-    display: none;
-  }
-  
-  /* Hiển thị dấu tích khi checkbox được chọn */
-  .list_check_input:checked + .list_check::after {
-    display: block;
-  }
-  
+}
+
