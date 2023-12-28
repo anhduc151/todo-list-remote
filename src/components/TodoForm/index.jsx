@@ -39,7 +39,7 @@ const TodoForm = ({ onAdd }) => {
 
       <div className="item">
         <button onClick={handleAdd} className="btn_add">
-          Add Task
+          Add
         </button>
       </div>
     </div>

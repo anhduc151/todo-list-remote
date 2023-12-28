@@ -7,8 +7,13 @@
 
 .list_item {
   display: flex;
+  padding: 20px 12px;
+  border-radius: 5px;
+  background-color: rgb(85, 164, 179);
+  border: 1px solid #c5baba;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 }
 
 .list_btn_delete {
@@ -30,18 +35,93 @@
   margin-left: 10px;
 }
 
-.list_btn_delete:hover, .list_btn_edit:hover  {
-    cursor: pointer;
+.list_btn_delete:hover,
+.list_btn_edit:hover {
+  cursor: pointer;
 }
 
-.btn_center {
+/* .btn_center {
   position: absolute;
   right: 10px;
-}
+} */
 
 .list_item_input {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
+
+.list_item_left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list_item_left_title {
+  font-size: 26px;
+  color: rgb(226, 194, 50);
+  font-weight: bold;
+}
+
+.list_item_left_des {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  width: 200px;
+}
+
+.list_check {
+  display: flex;
+  gap: 10px;
+}
+
+/* Thiết lập kiểu cho checkbox và label */
+.list_check_input {
+    display: none; /* Ẩn checkbox mặc định */
+  }
+  
+  .list_check {
+    position: relative;
+    padding-left: 30px; /* Khoảng cách giữa checkbox và nội dung */
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  /* Tạo hình dạng cho checkbox */
+  .list_check::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px; /* Độ rộng checkbox */
+    height: 20px; /* Chiều cao checkbox */
+    border: 2px solid #333; /* Màu và độ đậm của đường viền */
+    background-color: #fff; /* Màu nền của checkbox */
+  }
+  
+  /* Tạo hình check khi checkbox được chọn */
+  .list_check_input:checked + .list_check::before {
+    background-color: #4caf50; /* Màu nền của checkbox khi được chọn */
+    border-color: #4caf50; /* Màu của đường viền khi được chọn */
+  }
+  
+  /* Tạo hình check (dấu tích) */
+  .list_check::after {
+    content: '\2713'; /* Unicode của dấu tích */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px; /* Kích thước của dấu tích */
+    color: #fff; /* Màu của dấu tích */
+    display: none;
+  }
+  
+  /* Hiển thị dấu tích khi checkbox được chọn */
+  .list_check_input:checked + .list_check::after {
+    display: block;
+  }
+  
