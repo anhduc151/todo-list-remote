@@ -34,17 +34,16 @@ const TodoItem = ({ task, onToggle, onDelete, onEdit }) => {
       ) : (
         <div className="list_item">
           <div className="list_check">
-            <label className="checkbox-btn">
-              <label for="checkbox"></label>
+            <label className="container">
               <input
-                id="checkbox"
                 type="checkbox"
+                className="container_input"
                 checked={task.completed}
                 onChange={() => onToggle(task.id)}
               />
-              <span className="checkmark"></span>
+              <div className="checkmark"></div>
             </label>
-            
+
             <div className="list_item_left">
               <div
                 className="list_item_left"
@@ -58,15 +57,17 @@ const TodoItem = ({ task, onToggle, onDelete, onEdit }) => {
             </div>
           </div>
           <div className="btn_center">
-            <button
+            {/* <button
               onClick={() => onDelete(task.id)}
               className="list_btn_delete"
             >
               Delete
-            </button>
-            <button onClick={() => setEditing(true)} className="list_btn_edit">
+            </button> */}
+            <i class='bx bx-edit' onClick={() => setEditing(true)} title="edit"></i>
+            <i className='bx bx-trash' onClick={() => onDelete(task.id)} title="delete"></i>
+            {/* <button onClick={() => setEditing(true)} className="list_btn_edit">
               Edit
-            </button>
+            </button> */}
           </div>
         </div>
       )}
