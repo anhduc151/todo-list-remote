@@ -49,3 +49,30 @@ body {
   position: relative;
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.2);
 }
+
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn_add {
+    width: 120px !important;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    width: 100%;
+  }
+
+  .list_item_left_des {
+    width: 100px !important;
+  }
+}

@@ -18,11 +18,13 @@ const TodoItem = ({ task, onToggle, onDelete, onEdit }) => {
           <input
             type="text"
             className="list_item_input"
+            placeholder="Title"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
           />
           <input
             type="text"
+            placeholder="Description"
             className="list_item_input"
             value={editedDescription}
             onChange={(e) => setEditedDescription(e.target.value)}
