@@ -1,0 +1,47 @@
+/* css list */
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.list_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list_btn_delete {
+  width: 50px;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(190, 16, 16);
+  color: #fff;
+}
+
+.list_btn_edit {
+  width: 50px;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgb(173, 119, 17);
+  color: #fff;
+  margin-left: 10px;
+}
+
+.list_btn_delete:hover, .list_btn_edit:hover  {
+    cursor: pointer;
+}
+
+.btn_center {
+  position: absolute;
+  right: 10px;
+}
+
+.list_item_input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
