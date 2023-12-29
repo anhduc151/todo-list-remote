@@ -65,7 +65,7 @@ const TodoItem = ({ task, onToggle, onDelete, onEdit }) => {
             >
               Delete
             </button> */}
-            <i class='bx bx-edit' onClick={() => setEditing(true)} title="edit"></i>
+            <i className='bx bx-edit' onClick={() => setEditing(true)} title="edit"></i>
             <i className='bx bx-trash' onClick={() => onDelete(task.id)} title="delete"></i>
             {/* <button onClick={() => setEditing(true)} className="list_btn_edit">
               Edit

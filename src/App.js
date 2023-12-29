@@ -7,13 +7,11 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Lấy dữ liệu từ Local Storage khi component được render
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(storedTasks);
   }, []);
 
   useEffect(() => {
-    // Lưu trữ dữ liệu vào Local Storage mỗi khi tasks thay đổi
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -23,10 +21,12 @@ const App = () => {
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
+    console.log(tasks);
   };
 
   const handleDelete = (id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    console.log(tasks);
   };
 
   const handleAdd = (newTask) => {
@@ -34,6 +34,7 @@ const App = () => {
       ...prevTasks,
       { ...newTask, id: Date.now(), completed: false },
     ]);
+    console.log(tasks);
   };
 
   const handleEdit = (id, title, description) => {
@@ -42,6 +43,7 @@ const App = () => {
         task.id === id ? { ...task, title, description } : task
       )
     );
+    console.log(tasks);
   };
 
   return (
